@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Doctor's</h1>
+
+<table class="table table-striped table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>Full name</th>
+      <th>Special</th>
+      <th>Location</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @friends.each do |friend| %>
+      <tr>
+        <td><%= friend.full_name %></td>
+        <td><%= friend.special %></td>
+        <td><%= friend.location %></td>
+        <td><%= link_to 'Show', friend,class:"btn btn-secondary" %></td>
+        <td><%= link_to 'Edit', edit_friend_path(friend),class:"btn btn-dark" %></td>
+        <td><%= link_to 'Remove', friend, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-primary" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Doctor', new_friend_path,class:"btn btn-secondary" %>
+
